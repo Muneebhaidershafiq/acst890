@@ -1,0 +1,10 @@
+price <- function  (C,F,y,n) #use price as input for (Total Coupon, Face Value, semiannual interest rate, ending Payment )
+  {
+  r<- c(1:n) #vactor for [interest payment 1,2......n]
+  pr= (sum(C*exp(-y*r))) + (F*exp(-y[n]*n)) #present Bond value function
+  return(pr)     
+}
+
+#input 
+g <- c(0.06,0.08,0.02,0.01, 0.05) #suppose there's only 5 semianual, and g[] the value of interest at that smianual year
+price(6000, 8000, g, 5) #input for the set parameter c,f,y,n
