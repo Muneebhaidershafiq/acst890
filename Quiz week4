@@ -1,0 +1,57 @@
+Question 1a
+ubuntu@ip-172-31-23-20:~$ curl -s https://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/chapter-10-shell-programming--triplet-stop.sh
+
+Question 1b
+#!/bin/bash
+# save as triplet-stop.sh
+# splits a sequence into triplets
+x=0
+while [ -n "${1:$x:3}" ]; do
+  seq=$seq${1:$x:3}" "
+  x=$(expr $x + 3)
+  if [ ${1:$x:3} == taa ] || [$x –gt 8 ]; then
+    break
+  fi
+done
+echo "$seq"
+
+Question 2a
+$ scp -i 45469393.pem tutes.txt ubuntu@ec2-3-104-119-52.ap-southeast-2.compute.amazonaws.com:
+tutes.txt                                     100%   15KB 247.8KB/s   00:00
+
+Question 2b
+ubuntu@ip-172-31-23-20:~$ cat tutes.txt | uniq -c | sort
+
+Question 3 sample file creation 
+ubuntu@ip-172-31-23-20:~$ nano datafile.txt
+ubuntu@ip-172-31-23-20:~$ cat datafile.txt
+Hi my son
+you are hydrogenase son
+your mother is dehydrogenase
+so you are a product of hydrogenase and dehydrogenase
+-30 -40 -50
+4 5 6 7 8 9
+1.4 1.5 1.6
+-1.3 -1.4 -15
+ubuntu@ip-172-31-23-20:~$ ls
+datafile.txt  tutes.txt
+
+
+Question 3- 11.2
+ubuntu@ip-172-31-23-20:~$ egrep '^\w+\s+\w+\s+\w+$' datafile.txt
+Hi my son
+
+Question 3- 11.3
+ubuntu@ip-172-31-23-20:~$ grep -E "^-[0-9]+" datafile.txt | grep -vE [.]
+-30 -40 -50
+
+Question 3- 11.4
+ubuntu@ip-172-31-23-20:~$ egrep -o '[[:space:]][-0-9]+\.[0-9]+[[:space:]]' datafile.txt
+ 1.5
+ -1.4
+
+
+Question 3- 11.6
+ubuntu@ip-172-31-23-20:~$ grep -Ew 'hydrogenase' datafile.txt | grep -vEw 'dehydrogenase'
+you are hydrogenase son
+
