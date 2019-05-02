@@ -1,0 +1,35 @@
+12.1 code
+ubuntu@ip-172-31-23-20:~$ curl -s https://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/chapter-11-regex--structure.pdb > structure.pdp
+
+ubuntu@ip-172-31-23-20:~$ cat structure.pdp
+
+ubuntu@ip-172-31-23-20:~$ sed -n 's/Beisel/Weisel/p' structure.pdp
+
+12.2
+ubuntu@ip-172-31-23-20:~$ sed '1,3d' structure.pdp
+
+
+12.3
+ubuntu@ip-172-31-23-20:~$ sed -n '5,10p' structure.pdp
+
+
+12.4
+ubuntu@ip-172-31-23-20:~$ sed '/MET/d' structure.pdp
+
+
+12.5
+ubuntu@ip-172-31-23-20:~$ sed -n '/^HELIX.*ILE/p' structure.pdp
+
+
+12.6
+ubuntu@ip-172-31-23-20:~$ sed '/^H/a\ ***' structure.pdp
+
+
+12.7
+ubuntu@ip-172-31-23-20:~$ sed '/^SEQRES/c\SEQ' structure.pdp
+
+
+12.8
+scp -i 45469393.pem jabberwocky.txt ubuntu@ec2-3-104-119-52.ap-southeast-2.compute.amazonaws.com:
+
+ubuntu@ip-172-31-23-20:~$ sed '/^[[:space:]]*$/d' jabberwocky.txt
