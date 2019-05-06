@@ -1,0 +1,63 @@
+Q1
+
+x = open("C:\Users\Muneeb\Downloads\twain.txt").read()
+y = x.replace("Huck","HucK")
+print(y)
+
+
+
+Q3
+
+year = int(input("Enter a year: "))
+
+if (year % 4) == 0:
+   if (year % 100) == 0:
+       if (year % 400) == 0:
+           print("{0} is a leap year".format(year))
+       else:
+           print("{0} is not a leap year".format(year))
+   else:
+       print("{0} is a leap year".format(year))
+else:
+   print("{0} is not a leap year".format(year))
+   
+   
+   
+ Q4
+   
+   a = int(input("Enter lower limit: "))
+b = int(input("Enter upper limit: "))
+
+import random
+
+print("Random number between lower limit and upper limit : ", random.randrange(a, b))
+
+
+
+Q5
+
+m = int(input("Enter Month #: "))
+d = int(input("Enter Day: "))
+
+if (m == 3 and d >= 21 and d <=31 ) or ( m == 6 and d >= 1 and d <=20) or (m > 3 and m < 6 and d >=1 and d <=30) or (m == 5 and d ==31):
+    print("True")
+else:
+    print("False")
+
+
+
+Q6
+
+import math
+import sys
+
+P = float(input("Enter the principle: "))
+r = float(input("Enter the annual interest rate in decimal: "))
+t = float(input("Enter number of years: "))
+
+if(P<=0 or r<=0 or t<=0):
+    print("All input must be positive")
+    sys.exit()
+
+Amount = P*math.e**(r*t)
+print("Future Amount = ",Amount)
